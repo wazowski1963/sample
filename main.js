@@ -18,12 +18,11 @@ document.getElementById("thirdCanvas").style.display="inline-block";
     {ctx.beginPath(); 
     ctx.strokeStyle = color;
     
-       ctx.arc(touchpadlick_x, touchpadlick_y,50,0 , 2*Math.PI);
-     ctx.stroke();}
-
-     color2="black";
-     canvas2=document.getElementById("secondCanvas");
-     ctx2=canvas2.getContext("2d");
+   ctx.arc(touchpadlick_x, touchpadlick_y,50,0 , 2*Math.PI);
+   ctx.stroke();}
+    color2="black";
+    canvas2=document.getElementById("secondCanvas");
+    ctx2=canvas2.getContext("2d");
     canvas2.addEventListener("click", my_notepadlick2);
     function my_notepadlick2(e){ color2 = document.getElementById("color2").value;
     console.log(color2);
@@ -58,18 +57,39 @@ document.getElementById("thirdCanvas").style.display="inline-block";
     }
 
 
-canvas.addEventListener("touchstart", touchpadmove);
-function touchpadmove(e)
+
+
+
+canvas.addEventListener("mouseleave",leave)
+function leave(e)
 {
-  document.getElementById("firstCanvas").style.backgroundColor="blue";
-  current_position_of_mouse_x = e.touches[0].clientX - canvas.offsetLeft;
-  current_position_of_mouse_y= e.touches[0].clientY- canvas.offsetTop; 
-  ctx.beginPath(); 
-  ctx.strokeStyle = color;
-    
-  ctx.moveto(last_position_of_mouse_x,last_position_of_mouse_y);
-  ctx.lineto(current_position_of_mouse_x,current_position_of_mouse_y);
-  ctx.stroke();
-  last_position_of_mouse_x=current_position_of_mouse_x;
-  last_position_of_mouse_y=current_position_of_mouse_y;
+  document.getElementById("firstCanvas").style.backgroundColor="yellow";
+}
+canvas.addEventListener("mousemove",move)
+
+
+canvas.addEventListener("touchmove", my_touchmove);
+
+function my_touchmove(e) 
+{
+  document.getElementById("firstCanvas").style.backgroundColor="purple";
+
+	console.log("my_touchMove");
+    current_position_of_touch_x = e.touches[0].clientX - canvas.offsetLeft;
+    current_position_of_touch_y = e.touches[0].clientY - canvas.offsetTop;
+    // old same old as the paint web app
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 20;
+    console.log("Last position of x and y coordinates = ");
+    console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
+    ctx.moveTo(last_position_of_x, last_position_of_y);
+    console.log("Current position of x and y coordinates = ");
+    console.log("x  = " + current_position_of_touch_x + "y = " + current_position_of_touch_y);
+    ctx.lineTo(current_position_of_touch_x, current_position_of_touch_y);
+    ctx.stroke();
+    last_position_of_x = current_position_of_touch_x; 
+    last_position_of_y = current_position_of_touch_y;
+ 
+    // end of old same old as the paint web app
 }
