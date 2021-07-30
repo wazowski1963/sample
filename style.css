@@ -1,0 +1,11 @@
+.body_background { background-image: url("https://www.newsgram.com/wp-content/uploads/2015/12/Chota-Bheem-Aur-Krishna-Drawing-e1451484119715-1280x720.jpg");
+    background-position:left; 
+    background-size:stretch; }
+h1{color: darkblue;}
+button{border-radius: 400px;
+   margin-top: 10px;
+background-color: rgb(102, 196, 9);}
+#start_button{background-color: chocolate;}
+#firstCanvas { border-width:10px; background-color: white; border-style:ridge; }
+#secondCanvas { border-width:10px; background-color: white; border-style:ridge; }
+#thirdCanvas { border-width:10px; background-color: white; border-style:ridge; }
