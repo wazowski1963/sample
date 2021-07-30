@@ -17,7 +17,8 @@ document.getElementById("thirdCanvas").style.display="inline-block";
     function circle(touchpadlick_x,touchpadlick_y)
     {ctx.beginPath(); 
     ctx.strokeStyle = color;
-    ctx.arc(touchpadlick_x, touchpadlick_y,50,0 , 2*Math.PI);
+    
+       ctx.arc(touchpadlick_x, touchpadlick_y,50,0 , 2*Math.PI);
      ctx.stroke();}
 
      color2="black";
@@ -60,7 +61,7 @@ document.getElementById("thirdCanvas").style.display="inline-block";
 canvas.addEventListener("touchstart", touchpadmove);
 function touchpadmove(e)
 {
-  document.getElementById("firstCanvas").style.color="red";
+  document.getElementById("firstCanvas").style.backgroundColor="blue";
   current_position_of_mouse_x = e.touches[0].clientX - canvas.offsetLeft;
   current_position_of_mouse_y= e.touches[0].clientY- canvas.offsetTop; 
   ctx.beginPath(); 
